@@ -26,9 +26,7 @@ export function Header({
   const {shop, menu} = header;
   return (
     <header className="header">
-      <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <strong>{shop.name}</strong>
-      </NavLink>
+      <img src="/assets/whoop-logo.svg" alt="Whoop Logo" />
       <HeaderMenu
         menu={menu}
         viewport="desktop"
