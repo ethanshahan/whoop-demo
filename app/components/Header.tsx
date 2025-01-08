@@ -25,7 +25,7 @@ export function Header({
 }: HeaderProps) {
   const {shop, menu} = header;
   return (
-    <header className="header">
+    <header className="bg-black">
       <img src="/assets/whoop-logo.svg" alt="Whoop Logo" />
       <HeaderMenu
         menu={menu}
