@@ -57,7 +57,7 @@ export function HeaderMenu({
   const {close} = useAside();
 
   return (
-    <nav className={`${className} flex flex-grow justify-evenly max-w-[900px]`} role="navigation">
+    <nav className={`${className} flex flex-grow justify-evenly max-w-[900px] group`} role="navigation">
       {viewport === 'mobile' && (
         <NavLink
           end
@@ -81,7 +81,7 @@ export function HeaderMenu({
             : item.url;
         return (
           <NavLink
-            className="menu-link"
+            className="menu-link group-hover:!text-menuGray group-hover:hover:!text-white"
             end
             key={item.id}
             onClick={close}

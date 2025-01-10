@@ -4,7 +4,7 @@
 
 @layer components {
     .menu-link {
-        @apply relative !text-white transition-all font-medium;
+        @apply relative !text-white transition-all duration-300 font-medium;
     }
 
     .menu-link:hover{
