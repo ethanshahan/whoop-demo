@@ -19,22 +19,27 @@ type Viewport = 'desktop' | 'mobile';
 
 export function Header({
   header,
-  isLoggedIn,
-  cart,
   publicStoreDomain,
 }: HeaderProps) {
   const {shop, menu} = header;
   return (
-    <header className="header bg-black">
-      <img src="/assets/whoop-logo.svg" alt="Whoop Logo" />
-      <HeaderMenu
-        menu={menu}
-        viewport="desktop"
-        primaryDomainUrl={header.shop.primaryDomain.url}
-        publicStoreDomain={publicStoreDomain}
-      />
-      <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
-    </header>
+    <header className="header bg-black flex items-center justify-between px-4 relative">
+  {/* Logo aligned to the left */}
+  <img src="/assets/whoop-logo.svg" alt="Whoop Logo" className="mr-4" />
+
+  {/* Centered navigation menu */}
+  <HeaderMenu
+    menu={menu}
+    viewport="desktop"
+    primaryDomainUrl={header.shop.primaryDomain.url}
+    publicStoreDomain={publicStoreDomain}
+    className="absolute left-1/2 transform -translate-x-1/2"
+  />
+
+  {/* Button aligned to the right */}
+  <button className="text-white">Join Now</button>
+</header>
+
   );
 }
 
