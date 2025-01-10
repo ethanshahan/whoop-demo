@@ -23,9 +23,9 @@ export function Header({
 }: HeaderProps) {
   const {shop, menu} = header;
   return (
-    <header className="header bg-black flex items-center justify-between px-4 relative">
+    <header className="header bg-black flex items-center justify-between px-7 py-4 relative">
   {/* Logo aligned to the left */}
-  <img src="/assets/whoop-logo.svg" alt="Whoop Logo" className="mr-4" />
+  <img src="/assets/whoop-logo.svg" alt="Whoop Logo" className="w-44" />
 
   {/* Centered navigation menu */}
   <HeaderMenu
@@ -33,7 +33,6 @@ export function Header({
     viewport="desktop"
     primaryDomainUrl={header.shop.primaryDomain.url}
     publicStoreDomain={publicStoreDomain}
-    className="absolute left-1/2 transform -translate-x-1/2"
   />
 
   {/* Button aligned to the right */}
@@ -58,7 +57,7 @@ export function HeaderMenu({
   const {close} = useAside();
 
   return (
-    <nav className={className} role="navigation">
+    <nav className={`${className} flex flex-grow justify-evenly max-w-[900px]`} role="navigation">
       {viewport === 'mobile' && (
         <NavLink
           end
@@ -82,7 +81,7 @@ export function HeaderMenu({
             : item.url;
         return (
           <NavLink
-            className="header-menu-item !text-white"
+            className="menu-link"
             end
             key={item.id}
             onClick={close}
@@ -228,7 +227,10 @@ function activeLinkStyle({
   isPending: boolean;
 }) {
   return {
-    fontWeight: isActive ? 'bold' : undefined,
+    fontWeight: isActive ? 'semibold' : undefined,
     color: isPending ? 'grey' : 'black',
+    textDecoration: isActive ? 'underline' : undefined,
+    textUnderlineOffset: isActive ? '4px' : undefined,
   };
 }
+
