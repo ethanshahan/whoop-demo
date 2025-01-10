@@ -36,7 +36,7 @@ export function Header({
   />
 
   {/* Button aligned to the right */}
-  <button className="text-white">Join Now</button>
+  <button className="white-button">JOIN NOW</button>
 </header>
 
   );
