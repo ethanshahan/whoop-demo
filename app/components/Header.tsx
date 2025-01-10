@@ -25,7 +25,7 @@ export function Header({
 }: HeaderProps) {
   const {shop, menu} = header;
   return (
-    <header className="bg-black">
+    <header className="header bg-black">
       <img src="/assets/whoop-logo.svg" alt="Whoop Logo" />
       <HeaderMenu
         menu={menu}
@@ -77,7 +77,7 @@ export function HeaderMenu({
             : item.url;
         return (
           <NavLink
-            className="header-menu-item"
+            className="header-menu-item !text-white"
             end
             key={item.id}
             onClick={close}

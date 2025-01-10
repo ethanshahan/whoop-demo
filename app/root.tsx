@@ -39,8 +39,8 @@ export const shouldRevalidate: ShouldRevalidateFunction = ({
 
 export function links() {
   return [
-    { rel: "stylesheet", href: stylesheet },
     {rel: 'stylesheet', href: resetStyles},
+    {rel: "stylesheet", href: stylesheet },
     {
       rel: 'preconnect',
       href: 'https://cdn.shopify.com',
