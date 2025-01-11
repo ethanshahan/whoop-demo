@@ -23,16 +23,18 @@ export function Header({
 }: HeaderProps) {
   const {shop, menu} = header;
   return (
-  <header className="header bg-black flex items-center justify-between px-8 py-5 relative tracking-[-.075em]">
-    <img src="/assets/whoop-logo.svg" alt="Whoop Logo" className="w-[215px]" />
-    <HeaderMenu
-      menu={menu}
-      viewport="desktop"
-      primaryDomainUrl={header.shop.primaryDomain.url}
-      publicStoreDomain={publicStoreDomain}
-    />
-    <button className="white-button">JOIN NOW</button>
-</header>
+    <div className='hidden tablet:block'>
+      <header className="header bg-black flex items-center justify-between px-8 py-5 relative tracking-[-.075em]">
+      <img src="/assets/whoop-logo.svg" alt="Whoop Logo" className="w-[215px]" />
+      <HeaderMenu
+        menu={menu}
+        viewport="desktop"
+        primaryDomainUrl={header.shop.primaryDomain.url}
+        publicStoreDomain={publicStoreDomain}
+      />
+      <button className="white-button">JOIN NOW</button>
+        </header>
+    </div>
 
   );
 }
