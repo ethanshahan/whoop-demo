@@ -13,9 +13,9 @@ import {
 } from '@remix-run/react';
 import favicon from '~/assets/favicon.svg';
 import resetStyles from '~/styles/reset.css?url';
-import appStyles from '~/styles/app.css?url';
 import {PageLayout} from '~/components/PageLayout';
 import {FOOTER_QUERY, HEADER_QUERY} from '~/lib/fragments';
+import stylesheet from "~/styles/tailwind.css?url";
 
 export type RootLoader = typeof loader;
 
@@ -40,7 +40,7 @@ export const shouldRevalidate: ShouldRevalidateFunction = ({
 export function links() {
   return [
     {rel: 'stylesheet', href: resetStyles},
-    {rel: 'stylesheet', href: appStyles},
+    {rel: "stylesheet", href: stylesheet },
     {
       rel: 'preconnect',
       href: 'https://cdn.shopify.com',

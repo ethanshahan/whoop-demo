@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .menu-link {
+    @apply relative !text-white transition-all duration-300 font-bold;
+  }
+
+  .menu-link:hover {
+    @apply no-underline;
+  }
+
+  .menu-link::before {
+    @apply absolute bottom-0 left-0 w-0 h-[1.5px] bg-white transition-all duration-100;
+    content: '';
+  }
+
+  /* Animation for hover-in */
+  .menu-link:hover::before {
+    animation: expand-and-shrink 600ms ease-in-out;
+  }
+
+  /* Keyframes for the desired animation */
+  @keyframes expand-and-shrink {
+    0% {
+      width: 0%;
+    }
+
+    30% {
+      width: 25%;
+    }
+
+    60% {
+      width: 0%;
+      left: 100%;
+    }
+  }
+
+  .white-button {
+    @apply !bg-white rounded-full px-6 py-2 font-semibold transition duration-300 hover:!bg-gray-200;
+  }
+}

@@ -19,24 +19,21 @@ type Viewport = 'desktop' | 'mobile';
 
 export function Header({
   header,
-  isLoggedIn,
-  cart,
   publicStoreDomain,
 }: HeaderProps) {
   const {shop, menu} = header;
   return (
-    <header className="header">
-      <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <strong>{shop.name}</strong>
-      </NavLink>
-      <HeaderMenu
-        menu={menu}
-        viewport="desktop"
-        primaryDomainUrl={header.shop.primaryDomain.url}
-        publicStoreDomain={publicStoreDomain}
-      />
-      <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
-    </header>
+  <header className="header bg-black flex items-center justify-between px-8 py-5 relative tracking-[-.075em]">
+    <img src="/assets/whoop-logo.svg" alt="Whoop Logo" className="w-[215px]" />
+    <HeaderMenu
+      menu={menu}
+      viewport="desktop"
+      primaryDomainUrl={header.shop.primaryDomain.url}
+      publicStoreDomain={publicStoreDomain}
+    />
+    <button className="white-button">JOIN NOW</button>
+</header>
+
   );
 }
 
@@ -55,7 +52,7 @@ export function HeaderMenu({
   const {close} = useAside();
 
   return (
-    <nav className={className} role="navigation">
+    <nav className={`${className} flex flex-grow justify-evenly max-w-[900px] group`} role="navigation">
       {viewport === 'mobile' && (
         <NavLink
           end
@@ -79,7 +76,7 @@ export function HeaderMenu({
             : item.url;
         return (
           <NavLink
-            className="header-menu-item"
+            className="menu-link group-hover:!text-menuGray group-hover:hover:!text-white"
             end
             key={item.id}
             onClick={close}
@@ -225,7 +222,10 @@ function activeLinkStyle({
   isPending: boolean;
 }) {
   return {
-    fontWeight: isActive ? 'bold' : undefined,
+    fontWeight: isActive ? 'semibold' : undefined,
     color: isPending ? 'grey' : 'black',
+    textDecoration: isActive ? 'underline' : undefined,
+    textUnderlineOffset: isActive ? '4px' : undefined,
   };
 }
+
