@@ -5,7 +5,7 @@ import type {
   FooterQuery,
   HeaderQuery,
 } from 'storefrontapi.generated';
-import {Aside} from '~/components/Aside';
+import {Aside, useAside} from '~/components/Aside';
 import {Footer} from '~/components/Footer';
 import {Header, HeaderMenu} from '~/components/Header';
 import {CartMain} from '~/components/CartMain';
@@ -34,7 +34,7 @@ export function PageLayout({
 }: PageLayoutProps) {
   return (
     <Aside.Provider>
-      <MobileMenuAside/>
+      <MobileMenuAside header={header} publicStoreDomain={publicStoreDomain}/>
       {header && (
         <Header
           header={header}
@@ -149,15 +149,34 @@ function SearchAside() {
   );
 }
 
-function MobileMenuAside() {
+function MobileMenuAside({
+  header,
+  publicStoreDomain,
+}: {
+  header: PageLayoutProps['header'];
+  publicStoreDomain: PageLayoutProps['publicStoreDomain'];
+}) {
+  const { type, open, close } = useAside();
+  const expanded = type === 'mobile';
   return (
-      <Aside type="mobile" heading="MENU" className='w-full'>
-        <header className="header bg-black flex justify-between px-8 py-5">
+    header.menu &&
+    header.shop.primaryDomain?.url &&(
+    <>
+      <header className="header bg-black flex justify-between px-8 py-5 tablet:hidden">
           <img src="/assets/whoop-logo.svg" alt="Whoop Logo" className="w-[215px]" />
-          <button>
+          <button onClick={() => (expanded? close() : open('mobile'))}>
             <img src="/assets/hamburger.svg" alt="Nav Menu Toggle" className="w-[45px]" />
           </button>
-        </header>
+        </header> 
+      <Aside type="mobile" heading="MENU">
+        <HeaderMenu 
+          menu={header.menu}
+          viewport="mobile"
+          primaryDomainUrl={header.shop.primaryDomain.url}
+          publicStoreDomain={publicStoreDomain}/>
+        
       </Aside>
-    );
+    </>
+    )
+  );
 }

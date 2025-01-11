@@ -55,6 +55,7 @@ export function Aside({
   }, [close, expanded]);
 
   return (
+    expanded &&
     <div
       aria-modal
       className={`overlay ${expanded ? 'expanded' : ''} bg-black flex tablet:hidden`}
