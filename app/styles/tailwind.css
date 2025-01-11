@@ -4,7 +4,7 @@
 
 @layer components {
   .menu-link {
-    @apply relative !text-white transition-all duration-300 font-medium;
+    @apply relative !text-white transition-all duration-300 font-bold;
   }
 
   .menu-link:hover {
@@ -38,6 +38,6 @@
   }
 
   .white-button {
-    @apply !bg-white rounded-full px-6 py-2 font-medium transition duration-300 hover:!bg-gray-200;
+    @apply !bg-white rounded-full px-6 py-2 font-semibold transition duration-300 hover:!bg-gray-200;
   }
 }

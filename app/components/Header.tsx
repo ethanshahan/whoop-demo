@@ -23,20 +23,15 @@ export function Header({
 }: HeaderProps) {
   const {shop, menu} = header;
   return (
-    <header className="header bg-black flex items-center justify-between px-7 py-4 relative">
-  {/* Logo aligned to the left */}
-  <img src="/assets/whoop-logo.svg" alt="Whoop Logo" className="w-44" />
-
-  {/* Centered navigation menu */}
-  <HeaderMenu
-    menu={menu}
-    viewport="desktop"
-    primaryDomainUrl={header.shop.primaryDomain.url}
-    publicStoreDomain={publicStoreDomain}
-  />
-
-  {/* Button aligned to the right */}
-  <button className="white-button">JOIN NOW</button>
+  <header className="header bg-black flex items-center justify-between px-7 py-4 relative tracking-[-.075em]">
+    <img src="/assets/whoop-logo.svg" alt="Whoop Logo" className="w-44" />
+    <HeaderMenu
+      menu={menu}
+      viewport="desktop"
+      primaryDomainUrl={header.shop.primaryDomain.url}
+      publicStoreDomain={publicStoreDomain}
+    />
+    <button className="white-button">JOIN NOW</button>
 </header>
 
   );
