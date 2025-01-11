@@ -60,7 +60,6 @@ export function Aside({
       className={`overlay ${expanded ? 'expanded' : ''} bg-black flex tablet:hidden`}
       role="dialog"
     >
-      <button className="close-outside" onClick={close} />
       <aside className={className}>
         <header>
           <h3 className='hidden'>{heading}</h3>

@@ -34,7 +34,7 @@ export function PageLayout({
 }: PageLayoutProps) {
   return (
     <Aside.Provider>
-      <MobileMenuAside header={header} publicStoreDomain={publicStoreDomain}/>
+      <MobileMenuAside/>
       {header && (
         <Header
           header={header}
@@ -149,18 +149,15 @@ function SearchAside() {
   );
 }
 
-function MobileMenuAside({
-  header,
-  publicStoreDomain,
-}: {
-  header: PageLayoutProps['header'];
-  publicStoreDomain: PageLayoutProps['publicStoreDomain'];
-}) {
+function MobileMenuAside() {
   return (
-    header.menu &&
-    header.shop.primaryDomain?.url && (
-      <Aside type="mobile" heading="MENU" className=' flex tablet:hidden'>
+      <Aside type="mobile" heading="MENU" className='w-full'>
+        <header className="header bg-black flex justify-between px-8 py-5">
+          <img src="/assets/whoop-logo.svg" alt="Whoop Logo" className="w-[215px]" />
+          <button>
+            <img src="/assets/hamburger.svg" alt="Nav Menu Toggle" className="w-[45px]" />
+          </button>
+        </header>
       </Aside>
-    )
-  );
+    );
 }
