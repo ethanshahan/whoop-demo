@@ -23,8 +23,8 @@ export function Header({
 }: HeaderProps) {
   const {shop, menu} = header;
   return (
-  <header className="header bg-black flex items-center justify-between px-7 py-5 relative tracking-[-.075em]">
-    <img src="/assets/whoop-logo.svg" alt="Whoop Logo" className="w-44" />
+  <header className="header bg-black flex items-center justify-between px-8 py-5 relative tracking-[-.075em]">
+    <img src="/assets/whoop-logo.svg" alt="Whoop Logo" className="w-[215px]" />
     <HeaderMenu
       menu={menu}
       viewport="desktop"
