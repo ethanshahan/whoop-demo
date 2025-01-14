@@ -37,6 +37,10 @@
     }
   }
 
+  .header {
+    @apply bg-black flex items-center justify-between px-8 py-5;
+  }
+
   .white-button {
     @apply !bg-white rounded-full px-6 py-2 font-semibold transition duration-300 hover:!bg-gray-200;
   }

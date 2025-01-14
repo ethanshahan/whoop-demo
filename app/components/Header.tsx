@@ -24,7 +24,7 @@ export function Header({
   const {shop, menu} = header;
   return (
     <div className='hidden tablet:block'>
-      <header className="header bg-black flex items-center justify-between px-8 py-5 relative tracking-[-.075em]">
+      <header className="header relative tracking-[-.075em]">
         <img src="/assets/whoop-logo.svg" alt="Whoop Logo" className="w-[215px]" />
         <HeaderMenu
           menu={menu}

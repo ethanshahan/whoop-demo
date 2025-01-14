@@ -162,7 +162,7 @@ function MobileMenuAside({
     header.menu &&
     header.shop.primaryDomain?.url &&(
     <>
-      <header className="header bg-black flex justify-between px-8 py-5 tablet:hidden">
+      <header className="header tablet:hidden">
           <img src="/assets/whoop-logo.svg" alt="Whoop Logo" className="w-[215px]" />
           <button onClick={() => (expanded? close() : open('mobile'))}>
             <img src="/assets/hamburger.svg" alt="Nav Menu Toggle" className="w-[45px]" />
