@@ -3,21 +3,27 @@
 @tailwind utilities;
 
 @layer components {
-  .menu-link {
-    @apply relative !text-white transition-all duration-300 font-bold;
+  .desktop-menu-link {
+    @apply relative;
+    @apply !text-white font-bold;
+    @apply group-hover:!text-menuGray group-hover:hover:!text-white;
+    @apply transition-all duration-300;
   }
 
-  .menu-link:hover {
+  .desktop-menu-link:hover {
     @apply no-underline;
   }
 
-  .menu-link::before {
-    @apply absolute bottom-0 left-0 w-0 h-[1.5px] bg-white transition-all duration-100;
+  .desktop-menu-link::before {
+    @apply absolute;
+    @apply bg-white;
+    @apply bottom-0 left-0 w-0 h-[1.5px];
+    @apply transition-all duration-100;
     content: '';
   }
 
   /* Animation for hover-in */
-  .menu-link:hover::before {
+  .desktop-menu-link:hover::before {
     animation: expand-and-shrink 600ms ease-in-out;
   }
 
@@ -38,10 +44,16 @@
   }
 
   .header {
-    @apply bg-black flex items-center justify-between px-8 py-5;
+    @apply flex items-center justify-between;
+    @apply bg-black;
+    @apply px-8 py-5;
   }
 
   .white-button {
-    @apply !bg-white rounded-full px-6 py-2 font-semibold transition duration-300 hover:!bg-gray-200;
+    @apply rounded-full;
+    @apply px-6 py-2;
+    @apply font-semibold;
+    @apply !bg-white hover:!bg-gray-200;
+    @apply transition duration-300;
   }
 }

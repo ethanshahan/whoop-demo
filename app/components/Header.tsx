@@ -50,11 +50,15 @@ export function HeaderMenu({
   viewport: Viewport;
   publicStoreDomain: HeaderProps['publicStoreDomain'];
 }) {
-  const className = `header-menu-${viewport}`;
+  const className = 
+    viewport === 'desktop'?
+      'desktop-menu-link'
+      :'mobile-menu-link';
+
   const {close} = useAside();
 
   return (
-    <nav className={`${className} flex flex-grow justify-evenly max-w-[900px] group`} role="navigation">
+    <nav className={`flex flex-grow justify-evenly max-w-[900px] group`} role="navigation">
       {(menu || FALLBACK_HEADER_MENU).items.map((item) => {
         if (!item.url) return null;
 
@@ -67,7 +71,7 @@ export function HeaderMenu({
             : item.url;
         return (
           <NavLink
-            className="menu-link group-hover:!text-menuGray group-hover:hover:!text-white"
+            className={className}
             end
             key={item.id}
             onClick={close}
