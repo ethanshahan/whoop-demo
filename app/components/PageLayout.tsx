@@ -168,12 +168,15 @@ function MobileMenuAside({
             <img src="/assets/hamburger.svg" alt="Nav Menu Toggle" className="w-[45px]" />
           </button>
         </header> 
-      <Aside type="mobile" heading="MENU" className='fixed bg-white flex tablet:hidden h-[100vh]'>
+      <Aside type="mobile" heading="MENU" className={`fixed bg-white flex tablet:hidden h-[100vh] w-[100vw] transform transition-all duration-200 ${
+    expanded ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
         <HeaderMenu 
           menu={header.menu}
           viewport="mobile"
           primaryDomainUrl={header.shop.primaryDomain.url}
           publicStoreDomain={publicStoreDomain}/>
+
+        {/*Change 'Join Now' to a NavLink once Join Now page is built*/} 
         <p className='mobile-menu-link'>Join Now</p>
         
       </Aside>
