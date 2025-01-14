@@ -3,15 +3,22 @@
 @tailwind utilities;
 
 @layer components {
+  .mobile-nav {
+    @apply flex flex-col;
+  }
+  .desktop-nav {
+    @apply flex flex-grow justify-evenly;
+    @apply max-w-[900px];
+  }
   .desktop-menu-link {
     @apply relative;
-    @apply !text-white font-bold;
+    @apply !text-white font-bold uppercase !no-underline tracking-[-.075em];
     @apply group-hover:!text-menuGray group-hover:hover:!text-white;
     @apply transition-all duration-300;
   }
 
   .desktop-menu-link:hover {
-    @apply no-underline;
+    @apply !no-underline;
   }
 
   .desktop-menu-link::before {
@@ -20,6 +27,12 @@
     @apply bottom-0 left-0 w-0 h-[1.5px];
     @apply transition-all duration-100;
     content: '';
+  }
+
+  .mobile-menu-link {
+    @apply !text-black font-semibold text-2xl !no-underline;
+    @apply border-b-[1px];
+    @apply py-8 w-[70vw] mx-10;
   }
 
   /* Animation for hover-in */

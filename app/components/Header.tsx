@@ -24,7 +24,7 @@ export function Header({
   const {shop, menu} = header;
   return (
     <div className='hidden tablet:block'>
-      <header className="header relative tracking-[-.075em]">
+      <header className="header">
         <img src="/assets/whoop-logo.svg" alt="Whoop Logo" className="w-[215px]" />
         <HeaderMenu
           menu={menu}
@@ -50,7 +50,13 @@ export function HeaderMenu({
   viewport: Viewport;
   publicStoreDomain: HeaderProps['publicStoreDomain'];
 }) {
-  const className = 
+
+  const navClass =
+    viewport === 'desktop'?
+      'desktop-nav'
+      :'mobile-nav'
+
+  const menuLinkClass = 
     viewport === 'desktop'?
       'desktop-menu-link'
       :'mobile-menu-link';
@@ -58,7 +64,7 @@ export function HeaderMenu({
   const {close} = useAside();
 
   return (
-    <nav className={`flex flex-grow justify-evenly max-w-[900px] group`} role="navigation">
+    <nav className={`${navClass} group`} role="navigation">
       {(menu || FALLBACK_HEADER_MENU).items.map((item) => {
         if (!item.url) return null;
 
@@ -71,12 +77,11 @@ export function HeaderMenu({
             : item.url;
         return (
           <NavLink
-            className={className}
+            className={menuLinkClass}
             end
             key={item.id}
             onClick={close}
             prefetch="intent"
-            style={activeLinkStyle}
             to={url}
           >
             {item.title}

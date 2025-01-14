@@ -9,7 +9,7 @@ export default {
       },
       colors: {
         menuGray: '#A8A8A8'
-      }
+      },
     },
   },
   plugins: [],

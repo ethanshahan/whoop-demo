@@ -1,4 +1,4 @@
-import {Await, Link} from '@remix-run/react';
+import {Await, Link, NavLink} from '@remix-run/react';
 import {Suspense, useId} from 'react';
 import type {
   CartApiQueryFragment,
@@ -168,12 +168,13 @@ function MobileMenuAside({
             <img src="/assets/hamburger.svg" alt="Nav Menu Toggle" className="w-[45px]" />
           </button>
         </header> 
-      <Aside type="mobile" heading="MENU">
+      <Aside type="mobile" heading="MENU" className='fixed bg-white flex tablet:hidden h-[100vh]'>
         <HeaderMenu 
           menu={header.menu}
           viewport="mobile"
           primaryDomainUrl={header.shop.primaryDomain.url}
           publicStoreDomain={publicStoreDomain}/>
+        <p className='mobile-menu-link'>Join Now</p>
         
       </Aside>
     </>
