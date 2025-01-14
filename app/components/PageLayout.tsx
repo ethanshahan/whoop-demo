@@ -165,7 +165,9 @@ function MobileMenuAside({
       <header className="header tablet:hidden">
           <img src="/assets/whoop-logo.svg" alt="Whoop Logo" className="w-[215px]" />
           <button onClick={() => (expanded? close() : open('mobile'))}>
-            <img src="/assets/hamburger.svg" alt="Nav Menu Toggle" className="w-[45px]" />
+            {expanded? 
+              <img src="/assets/hamburger.svg" alt="Nav Menu Toggle" className="w-[45px]"/> 
+              : <img src="/assets/close-button.svg" alt="Nav Menu Toggle" className="w-[45px]"/>}
           </button>
         </header> 
       <Aside type="mobile" heading="MENU" className={`fixed bg-white flex tablet:hidden h-[100vh] w-[100vw] transform transition-all duration-200 ${
